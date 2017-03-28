@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>降域跨域</title>
+    <style>
+        .main {
+          width: 300px;
+          height: 200px;
+          border: 1px solid;
+        }
+        iframe {
+          widht: 300px;
+          height: 200px;
+          border: 1px solid;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="ct">
+      <h1>使用降域实现跨域</h1>
+      <div class="main">
+        <input type="text" placeholder="localhost">
+      </div>
+      <iframe src="http://b.jrg.com:8080/b.html" frameborder="0"></iframe>
+    </div>
+
+  <script>
+      $(".main input").addEventListener("input",function(){
+        console.log(this.value);
+        window.frames[0].$("#input").value=this.value;
+      });
+     document.domain="jrg.com";
+    
+  
+    function $(id){
+      return document.querySelector(id);
+    }
+  </script>
+  
+  </body>
+</html>
